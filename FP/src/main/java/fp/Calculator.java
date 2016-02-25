@@ -2,7 +2,10 @@ package fp;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class Calculator {
 
@@ -19,8 +22,18 @@ public class Calculator {
      * devuelve una lista con los n números de la serie de fibonacci.
      */
 	public static List<Integer> fibonacci(int n) {
-		throw  new NotImplementedException();
-	}
+		
+			List<Integer> lista=new ArrayList<Integer>();
+			int n0=1, n1=1;
+			lista.add(n0);
+			for(int i=1; i<n; i++){
+				lista.add(n1);
+				n1=n0+n1;
+				n0=n1-n0;
+			}
+			return lista;
+		}
+
 
 	/*
 	 * Escribir todos los números del number al 0 de step en step.
@@ -49,7 +62,10 @@ public class Calculator {
 	 * mostrar: cincuenta y seis
 	 */
 	public static String speakToMe(int n) {
-		throw  new NotImplementedException();
+		 
+		
+
+
 	}
 
 	/*
@@ -57,7 +73,7 @@ public class Calculator {
 	 * dd-MM-yyyy
 	 */
 	public static boolean isLeapYear(String fecha) {
-		throw  new NotImplementedException();
+
 	}
 
 	/*
