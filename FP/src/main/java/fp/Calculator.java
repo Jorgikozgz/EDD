@@ -81,15 +81,68 @@ public class Calculator {
      * Toma como parámetros una cadena de caracteres y devuelve cierto si la cadena resulta ser un palíndromo
      */
     public static boolean checkIsPalindrome(String cadena) {
-        throw  new NotImplementedException();
-    }
+		String chain="";
+ 		String exceptions = "áàäéèëíìïóòöúùuñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ";
+ 		String ascii = "aaaeeeiiiooouuunAAAEEEIIIOOOUUUNcC";
+ 	    String reverse="";
+
+ 	    	if(cadena!=null){
+ 			for(int i=0; i<cadena.length(); i++)
+ 					if(Character.isLetter(cadena.charAt(i)))
+ 						chain+=cadena.charAt(i);
+ 				chain=chain.toLowerCase();
+ 				for(int i=0; i<exceptions.length(); i++)
+ 					chain=chain.replace(exceptions.charAt(i), ascii.charAt(i));
+ 				for(int i=chain.length()-1; i>=0; i--)
+ 					reverse+=chain.charAt(i);
+ 				if(chain.equals(reverse))
+ 					return true;
+ 				else
+ 					return false;
+ 			}
+
+ 	    	return false;
+	}
+
+
+   
 
     /*
      * Pedir un número de 0 a 99 y mostrarlo escrito. Por ejemplo, para 56
      * mostrar: cincuenta y seis
      */
     public static String speakToMe(int n) {
+    	 
+		  String[] d = {"Cero","Diez","Veinte","Treinta","Cuarenta","Cincuenta",
+ 				  "Sesenta","Setenta","Ochenta","Noventa"};
+ 
+ 		  String[] u = {"","uno","dos","tres","cuatro","cinco","seis","siete",  		
 
+		"ocho","nueve","Diez","Once","Doce","Trece","Catorce","Quince","Dieciseis",
+ 				  "Diecisiete","Dieciocho","Diecinueve"};
+ 	  
+ 		  String number="";
+ 		  
+ 		  if(n==0){
+			  number="";
+ 			  number=d[0];
+ 			  return number;
+ 		  }
+ 		  else if(n<20){
+ 			  number="";
+ 			  number=u[n];
+ 			  return number;
+ 		  }
+ 		  else if((n%10)==0){
+ 			  number="";
+ 			  number=d[n/10];
+ 			  return number;
+ 		  }
+ 		  else{
+ 			  number="";
+ 			  number=d[n/10]+" y "+u[n%10];
+ 			  return number;
+ 		  }
 
 
     }
@@ -99,16 +152,16 @@ public class Calculator {
      * dd-MM-yyyy
      */
     public static boolean isLeapYear(String fecha) {
-    		
-    		if(fecha == ""){
-    			return false;
-    		}
-    		int year = Integer.parseInt(fecha.substring(6));
-    		if((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)){	
-    			return true;
-    		}else{
-    			return false;
-    		}
+
+            if(fecha == ""){
+                return false;
+            }
+            int year = Integer.parseInt(fecha.substring(6));
+            if((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)){
+                return true;
+            }else{
+                return false;
+            }
     }
 
     /*
@@ -134,18 +187,18 @@ public class Calculator {
              case 8:
              case 10:
              case 12:
-                 if(day<=31 && day>0)
+                 if(day <= 31 && day > 0)
                      return true;
                      break;
              case 4:
              case 6:
              case 9:
              case 11:
-                 if(day<=30 && day>0)
+                 if(day <= 30 && day > 0)
                      return true;
                      break;
              case 2:
-                 if(day<=28 && day>0)
+                 if(day <= 28 && day > 0)
                      return true;
                      break;
              }
